@@ -42,7 +42,7 @@ Parameters:
     Description: "Comma separated list of roles that won't be subject to the BlockPMPAdminBoundary"
 Globals:
   Function:
-    Runtime: Python3.9
+    Runtime: python3.7
     Environment:
       Variables:
         LOG_LEVEL: "INFO"
@@ -127,7 +127,6 @@ Resources:
     Type: AWS::Serverless::Function
     Properties:
       Handler: app.lambda_handler
-      Runtime: python3.9
       Timeout: 900
       MemorySize: 256
       CodeUri: src/lambda/
@@ -262,7 +261,6 @@ Resources:
     Type: AWS::Serverless::Function
     Properties:
       Handler: get_env_info.handler
-      Runtime: python3.9
       CodeUri: src/get_env_info/
       Description: This lambda backs the custom resource to get environment info
       Role: !GetAtt GetEnvInfoRole.Arn
@@ -390,7 +388,6 @@ Resources:
     DependsOn: BlockPMPAdminPolicyBoundary
     Properties:
       Handler: set_boundary.handler
-      Runtime: python3.9
       CodeUri: src/set_boundary/
       Timeout: 60
       Description: "This lambda sets a boundary to all Users and Roles existing in the account to: block PMP Admin, Block the creation of users without the boundary, delete the boundary and block the desativation of SCPs"
