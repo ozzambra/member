@@ -4,7 +4,7 @@ Parameters:
   DelegatedAdministratorAccountId:
     Type: String
     Description: AWS Organization delegated administrator AWS Account ID
-    AllowedPattern: ^[0-9]12$
+    AllowedPattern: ^[0-9]{12}$
 Resources:
   OrganizationDelegatedAdministration:
     Type: AWS::Organizations::ResourcePolicy
