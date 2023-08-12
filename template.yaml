@@ -45,7 +45,7 @@ Resources:
   lambdaPMProle:
     Type: AWS::IAM::Role
     Properties:
-      Description: "This role enables the PMP lambda to run and gather the PMP information"
+      Description: "Enables the PMP lambda to run and gather the PMP information"
       Policies:
         - PolicyName: LambdaPMPPolicy
           PolicyDocument:
@@ -122,7 +122,7 @@ Resources:
       Timeout: 900
       MemorySize: 256
       CodeUri: src/lambda/
-      Description: "This function reads the allowed and rejected products from a DynamoDB table in the management org and syncronizes it with all local member experiences"
+      Description: "Reads the allowed and rejected products from a DynamoDB table in the management org and syncronizes it with all local member experience(s)"
       Role: !GetAtt lambdaPMProle.Arn
       AutoPublishAlias: live
       ProvisionedConcurrencyConfig:
@@ -266,7 +266,7 @@ Resources:
     Condition: DeploySCP
     Type: AWS::IAM::Role
     Properties:
-      Description: "This role enables the GetEnvInfo lambda to get enviroment information"
+      Description: "Enables the GetEnvInfo lambda to get enviroment information"
       Policies:
         - PolicyName: "GetEnvInfoPolicy"
           PolicyDocument:
